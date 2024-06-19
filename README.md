@@ -74,3 +74,14 @@ The Helmholtz AI beamer template is distributed under the MIT license, see our [
 ## Copyrights
 
 The images and fonts provided as part of this LaTeX source code repository are copyrighted. As member of the Helmholtz Association you can freely use the material. For Helmholtz AI external users, you have to ensure that you are allowed to use a) the Helmholtz AI visual material, b) the Helmholtz corporate design as well as c) the Hermann Bold font as well as the Halvar and Corporate-S font families.
+
+-----------
+<div align="center">
+  <a href="http://www.kit.edu/english/index.php"><img src="./logos/kit.pdf" height="50px" hspace="3%" vspace="25px"></a>
+  <a href="https://www.helmholtz.ai/"><img src="./logos/Helmholtz-AI-ColorCMYK.png" height="25px" hspace="3%" vspace="25px"></a>
+  <a href="https://www.helmholtz.de/"><img src="./logos/helmholtz.pdf" height="25px" hspace="3%" vspace="25px"></a>
+</div>
+
+<div align="center">
+</div>
+
