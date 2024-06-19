@@ -77,11 +77,6 @@ The images and fonts provided as part of this LaTeX source code repository are c
 
 -----------
 <div align="center">
-  <a href="http://www.kit.edu/english/index.php"><img src="./logos/kit.pdf" height="50px" hspace="3%" vspace="25px"></a>
-  <a href="https://www.helmholtz.ai/"><img src="./logos/Helmholtz-AI-ColorCMYK.png" height="25px" hspace="3%" vspace="25px"></a>
-  <a href="https://www.helmholtz.de/"><img src="./logos/helmholtz.pdf" height="25px" hspace="3%" vspace="25px"></a>
-</div>
-
-<div align="center">
+  <a href="https://www.helmholtz.ai/"><img src="./logos/Helmholtz-AI-ColorCMYK.png" height="50px"></a>
 </div>
 
