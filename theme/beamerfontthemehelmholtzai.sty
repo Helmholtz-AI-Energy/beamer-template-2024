@@ -1,1 +1,22 @@
+% font selection
+\setmainfont[
+    Path=fonts/,
+    BoldFont=HalvarMittel-Bd.otf,
+    ItalicFont=HalvarMittel-RgSlanted.otf,
+    BoldItalicFont=HalvarMittel-BdSlanted.otf,
+]{HalvarMittel-Rg.otf}
+\setsansfont[
+    Path=fonts/,
+    BoldFont=HalvarMittel-Bd.otf,
+    ItalicFont=HalvarMittel-RgSlanted.otf,
+    BoldItalicFont=HalvarMittel-BdSlanted.otf,
+]{HalvarMittel-Rg.otf}
+\setmonofont[
+    Path=fonts/,
+    BoldFont=TexGyreCursor-Bold.otf,
+    ItalicFont=TexGyreCursor-Italic.otf,
+    BoldItalicFont=TexGyreCursor-Bold-Italic.otf,
+]{TexGyreCursor-Regular.otf}
 
+\newfontfamily\hermannboldfont[Path=fonts/]{Hermann-Bold.otf}
+\newcommand{\hermann}[1]{{\hermannboldfont #1}}

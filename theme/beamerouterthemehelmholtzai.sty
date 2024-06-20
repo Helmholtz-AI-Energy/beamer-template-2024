@@ -1,1 +1,302 @@
+% general slide geometry
+\setbeamersize{%
+    text margin left=0.8cm,
+    text margin right=0.8cm,
+    sidebar width left=0cm,
+    sidebar width right=0cm,
+    mini frame size=0cm,
+    mini frame offset=0cm
+}
 
+% research field
+\newcommand{\rfslider}[1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [fill=#1, draw=none] 
+            (current page.south east) --
+            ++(0, 1.0em) --
+            ++(-0.4\paperwidth, 0) --
+            ++(-0.6em, -0.6em) --
+            ++(-0.6\paperwidth, 0) --
+            ++(0, -0.4em) --
+            cycle;
+    \end{tikzpicture}
+}
+
+% bottom slider
+\newcommand{\bottomslider}[1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [fill=#1, draw=none] 
+            (current page.south east) --
+            ++(0, 1.2em) --
+            ++(-0.25\paperwidth, 0) --
+            ++(-0.6em, -0.6em) --
+            ++(-0.75\paperwidth, 0) --
+            ++(0, -0.6em) --
+            cycle;
+    \end{tikzpicture}
+}
+
+% top slider
+\newcommand{\topslider}[1]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [fill=#1, draw=none] 
+            (current page.north west) --
+            ++(0, -1.2em) --
+            ++(0.25\paperwidth, 0) --
+            ++(0.6em, 0.6em) --
+            ++(0.75\paperwidth, 0) --
+            ++(0, 0.6em) --
+            cycle;
+    \end{tikzpicture}
+}
+
+% top logo
+\newcommand{\topline}{%
+    \begin{beamercolorbox}[
+        wd=\paperwidth,
+        ht=1.0cm,
+        sep=0.2cm,
+        leftskip=0.4cm
+    ]{topline}
+        \strut
+        \includegraphics[height=1.2em]{logos/Helmholtz-AI-ColorCMYK-2.png}
+        \hfill
+        \raisebox{0.4em}{\textcolor{hgfgray}{\tiny\insertframenumber}}
+        \strut
+    \end{beamercolorbox}
+}
+
+% footer logo
+\newcommand{\footerlogo}{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=south east, inner sep=0, yshift=-0.05em, xshift=-0.3em] at (current page.south east) {
+            \includegraphics[height=1.2em]{logos/Helmholtz-AI-WhiteCMYK.png}
+        };
+    \end{tikzpicture}
+}
+
+% chevrons
+\newcommand{\chevrons}[2]{%
+    \begin{tikzpicture}[overlay, remember picture]
+        \draw [fill=#1, draw=none] 
+            (current page.north east) --
+            ++(-0.25\paperwidth, 0) --
+            ++(0.55cm, -0.45cm) --
+            ++($ (0.25\paperwidth, 0) + (-1.0cm, 0) $) --
+            ++($ (0, -0.25\paperwidth) + (0, 1.0cm) $) --
+            ++(0.45cm, -0.55cm) --
+            cycle;
+
+        \draw [fill=#2, draw=none] 
+            ($ (current page.north east) + (-0.45cm, -0.45cm) $) --
+            ++(-0.25\paperwidth, 0) --
+            ++(0.55cm, -0.45cm) --
+            ++($ (0.25\paperwidth, 0) + (-1.0cm, 0) $) --
+            ++($ (0, -0.25\paperwidth) + (0, 1.0cm) $) --
+            ++(0.45cm, -0.55cm) --
+            cycle;
+    \end{tikzpicture}
+}
+
+% regular slide
+\defbeamertemplate{background}{frame}{%
+    \rfslider{hgfdarkblue}
+    \bottomslider{hgflightblue}
+    \topline
+    \footerlogo
+}
+\defbeamertemplate{background}{empty}{}
+\setbeamertemplate{background}[frame]
+
+\defbeamertemplate{frametitle}{frame}{%
+    \begin{beamercolorbox}[
+        wd=\paperwidth,
+        ht=3.2em,
+        leftskip=0.8cm
+    ]{frametitle}
+        \ifx\insertframesubtitle\empty%
+            \strut\LARGE\hermann{\insertframetitle}\strut
+        \else %
+            \strut\large\hermann{\insertframetitle}\strut\par
+            \vspace{-0.4em}
+            \usebeamercolor[hgflightblue]{framesubtitle}\strut\small\insertframesubtitle\strut
+        \fi %
+    \end{beamercolorbox}
+}
+\defbeamertemplate{frametitle}{empty}{}
+\setbeamertemplate{frametitle}[frame]
+
+\defbeamertemplate{footline}{frame}{%
+    \begin{beamercolorbox}[
+        wd=\paperwidth,
+        ht=0.6em,
+        leftskip=0.8cm,
+    ]{footline}
+        \strut
+        \insertauthor
+        \enspace|\enspace
+        \ifx\insertshorttile\empty
+            \inserttitle
+        \else
+            \insertshorttitle
+        \fi%
+        \enspace|\enspace
+        \insertdate
+        \strut
+        \vskip-0.14em%
+    \end{beamercolorbox}
+}
+\defbeamertemplate{footline}{empty}{}
+\setbeamertemplate{footline}[frame]
+
+\setbeamertemplate{navigation symbols}{}
+
+% title
+\defbeamertemplate{background canvas}{frame}{}
+\defbeamertemplate{background canvas}{generic}{%
+    \includegraphics[width=\paperwidth, height=\paperheight]{titles/generic.png}
+}
+\defbeamertemplate{background canvas}{aeronautics-space-transport}{%
+    \includegraphics[width=\paperwidth, height=\paperheight]{titles/aeronautics-space-transport.png}
+}
+\defbeamertemplate{background canvas}{earth-environment}{%
+    \includegraphics[width=\paperwidth, height=\paperheight]{titles/earth-environment.png}
+}
+\defbeamertemplate{background canvas}{energy}{%
+    \includegraphics[width=\paperwidth, height=\paperheight]{titles/energy.png}
+}
+\defbeamertemplate{background canvas}{health}{%
+    \includegraphics[width=\paperwidth, height=\paperheight]{titles/health.png}
+}
+\defbeamertemplate{background canvas}{information}{%
+    \includegraphics[width=\paperwidth, height=\paperheight]{titles/information.png}
+}
+\defbeamertemplate{background canvas}{matter}{%
+    \includegraphics[width=\paperwidth, height=\paperheight]{titles/matter.png}
+}
+\defbeamertemplate{background canvas}{chip}{%
+    \includegraphics[width=\paperwidth, height=\paperheight]{titles/chip.png}
+}
+\defbeamertemplate{background canvas}{computing}{%
+    \includegraphics[width=\paperwidth, height=\paperheight]{titles/computing.png}
+}
+\defbeamertemplate{background canvas}{abstract}{%
+    \color{hgfdarkblue}\vrule width\paperwidth height\paperheight
+    \topslider{hgflightblue}
+    \bottomslider{hgflightblue}
+    
+    \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=west, inner sep=0, yshift=-0.05\paperheight] at (current page.west) {\includegraphics[scale=0.4]{titles/abstract.png}};
+        \node[anchor=north east, inner sep=0, xshift=-0.4cm, yshift=-0.1\paperheight] at (current page.north east) {\includegraphics[height=1.5em]{logos/Helmholtz-AI-WhiteCMYK-2.png}};
+    \end{tikzpicture}
+}
+\setbeamertemplate{background canvas}[frame]%
+
+
+\newcommand{\whitetitle}{ %
+    \vspace{0.2\paperheight}
+    \usebeamercolor[white]{title}\strut{\fontsize{34}{34}\selectfont\hermann{Helmholtz AI}}\strut\par%
+    
+    \vspace{0.1\paperheight}
+    
+    \usebeamercolor[white]{title}\strut{\large\hermann{\inserttitle}}\strut\par%
+    \usebeamercolor[hgflightblue]{subtitle}\strut{\insertsubtitle}\strut\par%
+    
+    \vspace{0.1\paperheight}
+    
+    \usebeamercolor[hgflightblue]{subtitle}\strut{\tiny\insertauthor}\strut\par%
+    \usebeamercolor[hgflightblue]{subtitle}\strut{\tiny\insertinstitute\enspace/\enspace\insertdate}\strut\par%
+}
+\newcommand{\bluetitle}{ %
+    \vspace{0.25\paperheight}
+    
+    \usebeamercolor[hgfdarkblue]{title}\strut{\LARGE\hermann{\inserttitle}}\strut\par%
+    \usebeamercolor[hgfblue]{subtitle}\strut{\insertsubtitle}\strut\par%
+    
+    \vspace{0.1\paperheight}
+    
+    \usebeamercolor[hgfblue]{subtitle}\strut{\tiny\insertauthor}\strut\par%
+    \usebeamercolor[hgfblue]{subtitle}\strut{\tiny\insertinstitute\enspace/\enspace\insertdate}\strut\par%
+}
+\newcommand{\whitetitleright}{ %
+    \begin{flushright}
+        \vspace{0.25\paperheight}
+        
+        \usebeamercolor[white]{title}\strut{\large\hermann{\inserttitle}}\strut\par%
+        \usebeamercolor[hgflightblue]{subtitle}\strut{\insertsubtitle}\strut\par%
+        
+        \vspace{0.1\paperheight}
+        
+        \usebeamercolor[hgflightblue]{subtitle}\strut{\tiny\insertauthor}\strut\par%
+        \usebeamercolor[hgflightblue]{subtitle}\strut{\tiny\insertinstitute\enspace/\enspace\insertdate}\strut\par%
+    \end{flushright}
+}
+
+\defbeamertemplate{title page}{generic}{
+    \whitetitle
+}
+\defbeamertemplate{title page}{aeronautics-space-transport}{
+    \bluetitle
+}
+\defbeamertemplate{title page}{earth-and-environment}{
+    \bluetitle
+}
+\defbeamertemplate{title page}{energy}{
+    \bluetitle
+}
+\defbeamertemplate{title page}{health}{
+    \bluetitle
+}
+\defbeamertemplate{title page}{information}{
+    \bluetitle
+}
+\defbeamertemplate{title page}{matter}{
+    \bluetitle
+}
+\defbeamertemplate{title page}{chip}{
+    \bluetitle
+}
+\defbeamertemplate{title page}{computing}{
+    \bluetitle
+}
+\defbeamertemplate{title page}{abstract}{
+    \whitetitleright
+}
+\setbeamertemplate{title page}[generic]%
+
+\renewcommand{\maketitle}[1][generic]{
+    \setbeamertemplate{background canvas}[#1]
+    \setbeamertemplate{background}[empty]
+    \setbeamertemplate{frametitle}[empty]
+    \setbeamertemplate{footline}[empty]
+
+    \setbeamertemplate{title page}[#1]
+    \ifbeamer@inframe %
+        \titlepage %
+    \else %
+        \frame{\titlepage}%
+    \fi %
+
+    % reset to normal slides
+    \setbeamertemplate{background canvas}[frame]
+    \setbeamertemplate{background}[frame]
+    \setbeamertemplate{frametitle}[frame]
+    \setbeamertemplate{footline}[frame]
+}
+
+% section header
+\newcommand{\sectionheader}{%
+    {
+        \vspace{-0.60\paperheight}
+        \fontsize{24}{26}\selectfont
+        \hermann{\insertsectionhead}
+    }
+}
+
+% section slides
+\AtBeginSection[]{
+    \begin{frame}%
+        \chevrons{hgfdarkblue}{hgflightblue}
+        \sectionheader
+    \end{frame}%
+}
