@@ -1,1 +1,228 @@
+\documentclass[aspectratio=1610]{beamer}
 
+\usepackage{Helmholtz-AI}
+
+% References
+\usepackage[
+    backend=biber,
+    url=true
+    ]{biblatex}
+\addbibresource{references.bib}
+
+\title[Short Title]{Super Awesome Project Title}
+\subtitle{Subtitle}
+\author{Max Mustermann}
+\date{YYYY-MM-DD}
+\institute{Helmholtz Center ABC}
+
+\begin{document}
+
+\maketitle
+\maketitle[aeronautics-space-transport]
+\maketitle[earth-environment]
+\maketitle[energy]
+\maketitle[health]
+\maketitle[information]
+\maketitle[matter]
+\maketitle[computing]
+\maketitle[chip]
+\maketitle[abstract]
+
+\begin{frame}
+    \frametitle{Usage}
+
+    \begin{enumerate}
+        \item Download all files from Github\\~
+        \item Edit \texttt{slides.tex} with your favorite editor\\~
+        \item Compile the slides by either:\\~
+        \begin{enumerate}
+            \item Typing \texttt{make} or \texttt{latexmk} in the directory of \texttt{slides.tex} or\\~
+            \item Using a LaTeX IDE like TeXstudio\\~
+        \end{enumerate}
+        \item \emph{Note:} make sure to use LuaLaTeX or XeLaTeX (default in \texttt{make}/\texttt{latexmk}) as compiler
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Main Slide Title}
+    \framesubtitle{Subtitle with more details}
+
+    \begin{itemize}
+        \item Standard bullet \textbf{point} can be created with the \texttt{itemize} \textit{environment}
+        \item They can have multiple sub-point
+        \begin{itemize}
+            \item As can be seen here
+            \begin{itemize}
+                \item Or here
+            \end{itemize}
+            \item The ordering is unimportant
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Equations}
+
+    \begin{equation*}
+        f(x) = \sum_i wx_i^2 + \frac{\beta}{2}
+    \end{equation*}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Columns and Figures}
+
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \begin{enumerate}
+                \item Columns allow you to have side-by-side content\\~
+                \item Each column itself is its own mini-slide\\~
+                \item Figures can be imported by path\\~
+                \item Scaling can be done relative to text width, height or initial size
+            \end{enumerate}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \centering
+            \includegraphics[width=0.8\textwidth]{logos/kit.pdf}
+            \source{Karlsruhe Institute of Technology}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}[fragile]
+    \frametitle{Source Code}
+
+\begin{minted}{python}
+import numpy as np
+
+def foo(a, b):
+    """
+    asd
+    """
+    return a + b + 1
+\end{minted}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Citations}
+    
+    \begin{itemize}
+        \item Using the usual \texttt{cite} command \cite{debus2023reporting}\\~
+        
+        \item Using \texttt{fullcite}:
+    \end{itemize}
+    
+    \vspace{1em}
+    \fullcite{debus2023reporting}
+\end{frame}
+
+
+% command for making the color boxes
+\newcommand\crule[3][black]{\textcolor{#1}{\rule{#2}{#3}}}
+
+\begin{frame}
+    \frametitle{Colors}
+    \framesubtitle{Basic Definitions}
+
+    \vspace{-1.0em}
+    \begin{table}
+        \centering
+        \small
+        \begin{tabular}{cl}
+            \textbf{Color} & \textbf{Name}\\\toprule
+            \crule[hgfblue]{10pt}{10pt} & hgfblue \\
+            \crule[hgflightblue]{10pt}{10pt} & hgflightblue \\
+            \crule[hgfdarkblue]{10pt}{10pt} & hgfdarkblue \\
+            \crule[hgfmint]{10pt}{10pt} & hgfmint \\
+            \crule[hgfhighlight]{10pt}{10pt} & hgfhighlight \\
+            \crule[hgfpale]{10pt}{10pt} & hgfpale \\
+            \crule[hgfgreen]{10pt}{10pt} & hgfgreen \\
+            \crule[hgfgray]{10pt}{10pt} & hgfgray \\
+            \crule[hgfaerospace]{10pt}{10pt} & hgfaerospace (short: hgfast) \\
+            \crule[hgfearthandenvironment]{10pt}{10pt} & hgfearthandenvironment (short: hgfee) \\
+            \crule[hgfenergy]{10pt}{10pt} & hgfenergy \\
+            \crule[hgfhealth]{10pt}{10pt} & hgfhealth \\
+            \crule[hgfinformation]{10pt}{10pt} & hgfinformation (short: hgfinfo) \\
+            \crule[hgfmatter]{10pt}{10pt} & hgfmatter \\\bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Colors}
+    \framesubtitle{Shades}
+
+    \emph{For each color there exist 10 lighter shades, exemplary for hgfblue}\\
+
+    \begin{table}
+        \centering
+        \small
+        \begin{tabular}{cl}
+            \textbf{Color} & \textbf{Name}\\\toprule
+            \crule[hgfblue10]{10pt}{10pt} & hgfblue10 \\
+            \crule[hgfblue20]{10pt}{10pt} & hgfblue20 \\
+            \crule[hgfblue30]{10pt}{10pt} & hgfblue30 \\
+            \crule[hgfblue40]{10pt}{10pt} & hgfblue40 \\
+            \crule[hgfblue50]{10pt}{10pt} & hgfblue50 \\
+            \crule[hgfblue60]{10pt}{10pt} & hgfblue60 \\
+            \crule[hgfblue70]{10pt}{10pt} & hgfblue70 \\
+            \crule[hgfblue80]{10pt}{10pt} & hgfblue80 \\
+            \crule[hgfblue90]{10pt}{10pt} & hgfblue90 \\
+            \crule[hgfblue]{10pt}{10pt} & hgfblue \\\bottomrule
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Blocks}
+
+    \begin{block}{block}
+        This is how a regular block looks like
+    \end{block}
+    \vspace{2em}
+    \begin{exampleblock}{exampleblock}
+        An example block is stilled differently.
+    \end{exampleblock}
+    \vspace{2em}
+    \begin{alertblock}{alertblock}
+        Alert blocks can draw attention to critical information
+    \end{alertblock}
+\end{frame}
+
+
+\section{Sections look like this}
+
+
+\begin{frame}
+    \frametitle{URLs and Fonts}
+
+    \begin{itemize}
+        \item There are raw links with the full URL \url{https://www.google.com}
+        \item You can add also links with names \href{https://www.google.com}{Google}\\~
+        
+		\item You might also want to write in \hermann{Hermann Bold} - Helmholtz's title font\footnote{With footnotes like this.}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{On-slide References and Collaborators}
+
+    \reference{
+        Foo et al, ``Bar and its theories'', 42, HAICON 24.
+    }
+    \collaborators{{logos/dlr.pdf, logos/fzj.pdf, logos/helmholtz-munich.pdf, logos/hereon.pdf, logos/hzdr.pdf, logos/kit.pdf}}
+\end{frame}
+
+
+% add full list of references
+\begin{frame}[allowframebreaks]{References}
+    \printbibliography
+\end{frame}
+
+\end{document}
