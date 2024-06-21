@@ -1,0 +1,73 @@
+% general slide geometry
+\setbeamersize{%
+    text margin left=6.0cm,
+    text margin right=1.0cm,
+    sidebar width left=4.5cm,
+    sidebar width right=2.5cm,
+    mini frame size=0cm,
+    mini frame offset=0cm
+}
+
+\defbeamertemplate{background canvas}{poster}{
+    \begin{tikzpicture}
+        \draw[draw=none, fill=hgfdarkblue] 
+            (current page.north west) --
+            ++(3cm, 0) --
+            ++(0, \paperheight) --
+            ++(-3cm, 0) --
+            cycle;
+
+        \draw[draw=none, fill=hgflightblue] 
+            ($ (current page.north west) + (3cm, 0.1\paperheight) $) --
+            ++(1.5cm, 0) --
+            ++(0, 0.9\paperheight) --
+            ++(-1.5cm, 0) --
+            cycle;
+    \end{tikzpicture}
+}
+\setbeamertemplate{background canvas}[poster]
+
+
+\setbeamertemplate{headline}{
+    \leavevmode
+    \begin{beamercolorbox}[
+        wd=\paperwidth,
+        sep=3.0cm,
+        leftskip=4.5cm
+    ]{headline}
+        \includegraphics[height=1.5cm]{logos/helmholtzai-logo-2-lines.pdf}\par
+        \vspace{1.5cm}
+        \Large\inserttitle\par
+        \vspace{1.5cm}
+        \usebeamercolor[hgflightblue]{framesubtitle}\small\insertauthor\par
+        \vspace{0.5cm}
+        \usebeamercolor[hgflightblue]{framesubtitle}\small\insertinstitute\par 
+    \end{beamercolorbox}
+}
+
+
+\setbeamertemplate{navigation symbols}{}
+
+
+\newtcolorbox[auto counter]{pblock}[2][]{%
+    colback=white,
+    colbacktitle=white,
+    coltitle=hgfdarkblue,
+    fonttitle=\hermannboldfont, 
+    title=\enspace #2,
+    enhanced,
+    frame hidden,
+    borderline north={3.0pt}{0pt}{hgfdarkblue},
+    before title={
+        \hspace{-0.6em}\color{hgfdarkblue}\rule{1.5em}{1.5em}
+    },
+    toptitle=-0.3em,
+    top=0.5em,
+    boxsep=0.3em,
+    after=\vfill,
+    #1
+}
+
+\pdfstringdefDisableCommands{%
+    \def\textsuperscript#1{#1} %
+}

@@ -54,14 +54,14 @@
 \newcommand{\topline}{%
     \begin{beamercolorbox}[
         wd=\paperwidth,
-        ht=1.0cm,
+        ht=0.8cm,
         sep=0.2cm,
-        leftskip=0.4cm
+        leftskip=0.6cm
     ]{topline}
         \strut
-        \includegraphics[height=1.2em]{logos/Helmholtz-AI-ColorCMYK-2.png}
+        \includegraphics[height=0.5em]{logos/helmholtzai-logo-2-lines.pdf}
         \hfill
-        \raisebox{0.4em}{\textcolor{hgfgray}{\tiny\insertframenumber}}
+        \textcolor{hgfgray}{\tiny\insertframenumber}
         \strut
     \end{beamercolorbox}
 }
@@ -69,8 +69,8 @@
 % footer logo
 \newcommand{\footerlogo}{%
     \begin{tikzpicture}[overlay, remember picture]
-        \node[anchor=south east, inner sep=0, yshift=-0.05em, xshift=-0.3em] at (current page.south east) {
-            \includegraphics[height=1.2em]{logos/Helmholtz-AI-WhiteCMYK.png}
+        \node[anchor=south east, inner sep=0, yshift=0.3em, xshift=-0.8em] at (current page.south east) {
+            \includegraphics[height=0.5em]{logos/helmholtzai-logo-white.pdf}
         };
     \end{tikzpicture}
 }
@@ -187,7 +187,7 @@
     
     \begin{tikzpicture}[overlay, remember picture]
         \node[anchor=west, inner sep=0, yshift=-0.05\paperheight] at (current page.west) {\includegraphics[scale=0.4]{titles/abstract.png}};
-        \node[anchor=north east, inner sep=0, xshift=-0.4cm, yshift=-0.1\paperheight] at (current page.north east) {\includegraphics[height=1.5em]{logos/Helmholtz-AI-WhiteCMYK-2.png}};
+        \node[anchor=north east, inner sep=0, xshift=-0.8cm, yshift=-0.1\paperheight] at (current page.north east) {\includegraphics[height=0.7em]{logos/helmholtzai-logo-2-lines-white.pdf}};
     \end{tikzpicture}
 }
 \setbeamertemplate{background canvas}[frame]%
