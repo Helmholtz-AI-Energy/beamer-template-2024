@@ -39,7 +39,6 @@
             \item Typing \texttt{make} or \texttt{latexmk} in the directory of \texttt{slides.tex} or\\~
             \item Using a LaTeX IDE like TeXstudio\\~
         \end{enumerate}
-        \item \emph{Note:} make sure to use LuaLaTeX or XeLaTeX (default in \texttt{make}/\texttt{latexmk}) as compiler
     \end{enumerate}
 \end{frame}
 
@@ -132,7 +131,8 @@ def foo(a, b):
         \centering
         \small
         \begin{tabular}{cl}
-            \textbf{Color} & \textbf{Name}\\\toprule
+            \toprule
+            \textbf{Color} & \textbf{Name}\\\midrule
             \crule[hgfblue]{10pt}{10pt} & hgfblue \\
             \crule[hgflightblue]{10pt}{10pt} & hgflightblue \\
             \crule[hgfdarkblue]{10pt}{10pt} & hgfdarkblue \\
@@ -161,8 +161,8 @@ def foo(a, b):
     \begin{table}
         \centering
         \small
-        \begin{tabular}{cl}
-            \textbf{Color} & \textbf{Name}\\\toprule
+        \begin{tabular}{cl}\toprule
+            \textbf{Color} & \textbf{Name}\\\midrule
             \crule[hgfblue10]{10pt}{10pt} & hgfblue10 \\
             \crule[hgfblue20]{10pt}{10pt} & hgfblue20 \\
             \crule[hgfblue30]{10pt}{10pt} & hgfblue30 \\
