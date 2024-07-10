@@ -46,7 +46,7 @@
     \end{tikzpicture}
 }
 
-\newcommand{\collaborators}[2]{%
+\newcommand{\collaborators}[2][0.25cm]{%
     \begin{tikzpicture}[remember picture, overlay]
         \node[
             anchor=south east,
@@ -54,8 +54,8 @@
             yshift=1.4em,
             inner sep=0,
         ] at (current page.south east) {
-            \foreach \collaborator in #1 {%
-                \hspace{0.2em}\includegraphics[height=#2]{\collaborator}
+            \foreach \collaborator in #2 {%
+                \hspace{0.2em}\includegraphics[height=#1]{\collaborator}
             }
         };
     \end{tikzpicture}
