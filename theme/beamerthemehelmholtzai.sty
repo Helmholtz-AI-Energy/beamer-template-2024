@@ -32,11 +32,11 @@
 \newcommand{\reference}[1]{%
     \begin{tikzpicture}[remember picture, overlay]
         \node[
-            anchor=south west, 
-            xshift=0.66cm, 
-            yshift=0.3cm, 
-            text=hgfgray, 
-            text width=0.55\paperwidth, 
+            anchor=south west,
+            xshift=0.66cm,
+            yshift=0.3cm,
+            text=hgfgray,
+            text width=0.55\paperwidth,
             align=left,
             inner sep=0,
             execute at begin node=\setlength{\baselineskip}{7pt}
@@ -46,16 +46,16 @@
     \end{tikzpicture}
 }
 
-\newcommand{\collaborators}[1]{%
+\newcommand{\collaborators}[2][0.25cm]{%
     \begin{tikzpicture}[remember picture, overlay]
         \node[
-            anchor=south east, 
-            xshift=-0.4em, 
+            anchor=south east,
+            xshift=-0.4em,
             yshift=1.4em,
             inner sep=0,
         ] at (current page.south east) {
-            \foreach \collaborator in #1 {%
-                \hspace{0.2em}\includegraphics[height=0.25cm]{\collaborator}
+            \foreach \collaborator in #2 {%
+                \hspace{0.2em}\includegraphics[height=#1]{\collaborator}
             }
         };
     \end{tikzpicture}
