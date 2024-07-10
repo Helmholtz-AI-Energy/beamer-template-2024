@@ -30,16 +30,16 @@
     \tiny\textcolor{hgfgray50}{Source: #1}
 }
 
-\newcommand{\collaborators}[1]{%
+\newcommand{\collaborators}[2][1.0em]{%
     \begin{tikzpicture}[remember picture, overlay]
         \node[
-            anchor=south east, 
-            xshift=-1.0em, 
+            anchor=south east,
+            xshift=-1.0em,
             yshift=1.0em,
             inner sep=0,
         ] at (current page.south east) {
-            \foreach \collaborator in #1 {%
-                \hspace{0.8em}\includegraphics[height=1.0em]{\collaborator}
+            \foreach \collaborator in #2 {%
+                \hspace{0.8em}\includegraphics[height=#1]{\collaborator}
             }
         };
     \end{tikzpicture}
