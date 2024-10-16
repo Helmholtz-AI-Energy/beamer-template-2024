@@ -77,6 +77,6 @@ The images and fonts provided as part of this LaTeX source code repository are c
 
 -----------
 <div align="center">
-  <a href="https://www.helmholtz.ai/"><img src="./logos/Helmholtz-AI-ColorCMYK.png" height="50px"></a>
+  <a href="https://www.helmholtz.ai/"><img src="./logos/helmholtzai-logo-2-lines.png" height="50px"></a>
 </div>
 
