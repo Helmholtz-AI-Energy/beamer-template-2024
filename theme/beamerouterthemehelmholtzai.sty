@@ -133,7 +133,11 @@
         leftskip=0.8cm,
     ]{footline}
         \strut
-        \insertauthor
+        \ifx\insertshortauthor\empty
+            \insertauthor
+        \else
+            \insertshortauthor
+        \fi%
         \enspace|\enspace
         \ifx\insertshorttile\empty
             \inserttitle
