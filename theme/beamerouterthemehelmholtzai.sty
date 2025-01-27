@@ -290,11 +290,16 @@
 
 % section header
 \newcommand{\sectionheader}{%
-    {
-        \vspace{-0.60\paperheight}
+    \begin{tikzpicture}
+    \node[] at (0,0) {};
+    \node[text width=.8\textwidth, align=left, anchor=north 
+    west] at (2.5cm, -2cm) {%
+    \begin{minipage}[t]{\linewidth}
         \fontsize{24}{26}\selectfont
         \hermann{\insertsectionhead}
-    }
+    \end{minipage}
+    };
+    \end{tikzpicture}
 }
 
 % section slides
