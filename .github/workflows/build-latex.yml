@@ -12,10 +12,8 @@ jobs:
         steps:
             - uses: actions/checkout@v3
             
-            - name: Build slides
-              run: |
-                cd slides
-                make
+            - run: cd slides
+            - run: make
             
             - name: Upload PDF artifact
               uses: actions/upload-artifact@v3
