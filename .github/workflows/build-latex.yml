@@ -1,0 +1,50 @@
+name: Build and Release LaTeX
+
+on:
+    push:
+        tags:
+            - '*'
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        container: texlive/texlive:latest
+        steps:
+            - uses: actions/checkout@v3
+            
+            - name: Build slides
+                run: |
+                    cd slides
+                    make
+            
+            - name: Upload PDF artifact
+                uses: actions/upload-artifact@v3
+                with:
+                    name: slides
+                    path: slides/slides.pdf
+
+    release:
+        needs: build
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            packages: write
+        
+        steps:
+            - uses: actions/download-artifact@v3
+                with:
+                    name: slides
+                    
+            - name: Create Release
+                id: create_release
+                uses: softprops/action-gh-release@v1
+                with:
+                    files: slides.pdf
+                    name: ${{ github.ref_name }}
+                    body: |
+                        Slides created by GitHub Actions
+                        Release ${{ github.ref_name }}
+                    draft: false
+                    prerelease: false
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
