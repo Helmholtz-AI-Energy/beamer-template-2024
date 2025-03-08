@@ -18,7 +18,7 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                     name: slides
-                    path: slides/slides.pdf
+                    path: slides.pdf
 
     release:
         needs: build
