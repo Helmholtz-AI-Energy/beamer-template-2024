@@ -1,0 +1,43 @@
+image: texlive/texlive:latest
+
+build_slides:
+  stage: build
+  script:
+    - make
+    - make poster
+  artifacts:
+    paths:
+      - slides.pdf
+      - poster.pdf
+
+upload package:
+  stage: deploy
+  needs: ["build_slides"]
+  image: curlimages/curl:latest
+  script:
+    - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file slides.pdf "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/pdfs/$CI_COMMIT_TAG/slides.pdf"'
+    - 'curl --header "JOB-TOKEN: $CI_JOB_TOKEN" --upload-file poster.pdf "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/pdfs/$CI_COMMIT_TAG/poster.pdf"'
+  only:
+    - tags
+
+release:
+  stage: deploy
+  needs: ["upload package"]
+  image: registry.gitlab.com/gitlab-org/release-cli:latest
+  script:
+    - echo "Release $CI_COMMIT_TAG"
+  only:
+    - tags
+  release:
+    tag_name: $CI_COMMIT_TAG
+    description: |
+      Slides created by GitLab CI/CD
+      $CI_COMMIT_TAG_MESSAGE
+    name: $CI_COMMIT_TAG
+    ref: $CI_COMMIT_REF_NAME
+    assets:
+      links:
+        - name: Slides
+          url: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/pdfs/$CI_COMMIT_TAG/slides.pdf"
+        - name: Poster
+          url: "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/pdfs/$CI_COMMIT_TAG/poster.pdf"
