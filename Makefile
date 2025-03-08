@@ -1,13 +1,21 @@
-main=slides.tex
+slides=slides.tex
+poster=poster.tex
 
 # Default
-all: $(main)
+all: $(slides)
 	latexmk $<
 
 # Build, watch, rebuild and open target in PDF viewer.
-preview: $(main)
+preview: $(slides)
 	latexmk -pvc $<
 
+# Build the poster
+poster: $(poster)
+	latexmk $<
+
+# Preview the poster
+preview-poster: $(poster)
+	latexmk -pvc $<
 
 # Cleanup
 clean: _restclean
