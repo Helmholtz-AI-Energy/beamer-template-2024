@@ -4,6 +4,17 @@
 
 [![license: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+## Example PDF files
+
+Examples of the final PDFs can be found in [releases](https://github.com/Helmholtz-AI-Energy/beamer-template-2024/releases).
+
+A new release (including the latest versions of the PDFs) can be created by simply adding a tag:
+
+```sh
+$ git tag v0.2.0
+$ git push origin --tags
+```
+
 ## Requirements
 
 Ensure that you have an up-to-date LaTeX distribution installed on your system.
@@ -39,6 +50,12 @@ $ make
 which uses the `latexmk` tool under the hood. We highly recommend `latexmk` when
 compiling on the command line since it handles the bibliography, e.g. using
 `bib(la)tex` + `biber` automatically.
+
+To build the poster, use the following command:
+
+```sh
+$ make poster
+```
 
 To get rid of all the temporary files created during the compilation, use
 
