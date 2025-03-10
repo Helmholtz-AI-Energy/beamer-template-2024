@@ -4,16 +4,35 @@
 
 [![license: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Example PDF files
+## Examples
 
-Examples of the final PDFs can be found in [releases](https://github.com/Helmholtz-AI-Energy/beamer-template-2024/releases).
+The template offers a multitude of different slide templates. Below is an incomplete set of example screenshots of the final result.
 
-A new release (including the latest versions of the PDFs) can be created by simply adding a tag:
+Complete Examples of the final PDFs can be found on the [releases page](https://github.com/Helmholtz-AI-Energy/beamer-template-2024/releases).
 
-```sh
-$ git tag v0.2.0
-$ git push origin --tags
-```
+### Title slides
+
+There are title slides for each research field available. Here are two examples (default title and aeronautics, space and transport title):
+
+![Default Title](screenshots/default_title.png)
+
+![Aeronautics Title](screenshots/aeronautics_titl.png)
+
+### Content slides
+
+![Main slide](screenshots/slide.png)
+
+![Equation slide](screenshots/equations.png)
+
+![Code slide](screenshots/source_code.png)
+
+![Columns and figures slide](screenshots/columns_figures.png)
+
+![Citations slide](screenshots/citations.png)
+
+### Poster
+
+![Poster](screenshots/poster.png)
 
 ## Requirements
 
@@ -38,7 +57,11 @@ Visit the [TeX Live quick install page](https://www.tug.org/texlive/quickinstall
 
 ## Building the slides
 
-In order to build your slides you can use your favorite LaTeX IDE, like TeXstudio, Texmaker or even Overleaf.
+In order to build your slides you can build locally or use the GitHub/GitLab CI.
+
+### Local build
+
+Local builds use your favorite LaTeX IDE, like TeXstudio, Texmaker or even Overleaf.
 Please ensure that you compile it with XeLaTeX or LuaLaTeX instead of the (usual default) pdfLaTeX.
 
 You can opt to use the provided `Makefile` and simply typing the following in your terminal:
@@ -83,6 +106,27 @@ $ latexmk -c
 ```
 
 Note: At the time of writing, the contents of this repo can be readily used on [overleaf](https://overleaf.com).
+
+### Build using the GitHub/GitLab CI
+
+The latest versions of the PDFs can be created by simply adding a tag:
+
+```sh
+$ git tag v0.2.0
+$ git push origin --tags
+```
+
+After a couple of minutes (~3 min) the new PDFs will appear on the [releases page](https://github.com/Helmholtz-AI-Energy/beamer-template-2024/releases).
+
+### Example PDF files
+
+A new release (including the latest versions of the PDFs) can be created by simply adding a tag:
+
+```sh
+$ git tag v0.2.0
+$ git push origin --tags
+```
+
 
 ## License
 
